@@ -44,13 +44,14 @@ let make_hrm = fun key_idx =>
   let hrm_mods =
     let md = hold.reg.mod
   in [
-    md.lctl, md.lalt, md.lgui, md.lsft, md.ralt,
-    md.ralt, md.rsft, md.rgui, md.lalt, md.rctl,
+    md.ralt, md.lalt, md.lctl, md.lsft, md.lgui,
+    md.lgui, md.lsft, md.lctl, md.lalt, md.ralt,
   ] in
 
   let hrm_key_indices = [
-    16, 8,  9,  10, 11,
-    12, 13, 14, 15, 23,
+    16, 17, 18, 19,
+    11, 12,
+    20, 21, 22, 23,
   ] in
 
   let htb_hrm_base = {

@@ -60,10 +60,13 @@ let both_side_combos = [
     combos = [
       # Left
       [kc.Q,    0,  1],
-      [kc.Z,    17, 18], [kc.B,    18, 19],
+      [kc.Z,    17, 18],
+      [kc.B,    18, 19],
       # Right
-                                            [kc.QUOT, 5, 6],   [kc.SCLN, 6,  7],
-                                            [kc.MINS, 20, 21], [kc.SLSH, 21, 22],
+      [kc.QUOT, 5, 6],
+      [kc.SCLN, 6,  7],
+      [kc.MINS, 20, 21],
+      [kc.SLSH, 21, 22],
     ] @ both_side_combos,
     layers = {
       NUM = shared_layers.NUM0,
