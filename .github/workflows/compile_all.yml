@@ -14,17 +14,17 @@ jobs:
       - uses: actions/checkout@v3
       - uses: DeterminateSystems/nix-installer-action@main
       - run: nix develop .#container --command fak compile_all
-      - uses: EndBug/latest-tag@latest
-      - uses: ncipollo/release-action@v1
-        with:
-          tag: latest
-          artifacts: ".fak_cache/*.ihx"
-          allowUpdates: true
-          removeArtifacts: true
-          replacesArtifacts: true
-          makeLatest: true
+      # - uses: EndBug/latest-tag@latest
+      # - uses: ncipollo/release-action@v1
+      #   with:
+      #     tag: latest
+      #     artifacts: ".fak_cache/*.ihx"
+      #     allowUpdates: true
+      #     removeArtifacts: true
+      #     replacesArtifacts: true
+      #     makeLatest: true
       - name: Upload artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: firmware
-          path: ".fak_cache"
+          path: .fak_cache/*.ihx
