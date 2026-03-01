@@ -13,15 +13,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: DeterminateSystems/nix-installer-action@main
-      - run: nix develop .#container --command fak compile_all
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v6
+      - run: |
+          nix develop .#container --command fak compile_all
+          mv .fak_cache fak_cache
+      - uses: actions/upload-artifact@v6
         with:
           name: firmware
-          path: .fak_cache/*.ihx
+          path: 'fak_cache/*.ihx'
       - uses: actions/download-artifact@v6
         with:
-          name: firmware
+          patern: firmware
       # - uses: EndBug/latest-tag@latest
       # - uses: ncipollo/release-action@v1
       #   with:
