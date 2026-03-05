@@ -1,3 +1,7 @@
+#    0  1  2  3   4  5  6  7
+# 8  9 10 11 12  13 14 15 16 17
+#   18 19 20        21 22 23
+
 let { tap, hold, .. } = import "fak/keycode.ncl" in
 let util = import "fak/util_functions.ncl" in
 
@@ -52,14 +56,10 @@ let both_side_combos = [
   # Caps word combo here once supported
   # [CW, 10, 13],
 ] in
-
-#    0  1  2  3   4  5  6  7
-# 8  9 10 11 12  13 14 15 16 17
-#   18 19 20        21 22 23
 {
   qwerty = {
     base_layout = "WERTYUIOASDFGHJKLPCVBNM.",
-    thumbs = [kc.ESC, kc.SPC, kc.N, kc.ENT],
+    thumbs = [tap.custom.fak.CWON, kc.SPC, hold.reg.layer 1, hold.reg.layer 2],
     combos = [
       [kc.Q,    0,  1],
       [kc.X,    1,  2],
