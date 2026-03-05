@@ -53,20 +53,26 @@ let both_side_combos = [
   # [CW, 10, 13],
 ] in
 
+#    0  1  2  3   4  5  6  7
+# 8  9 10 11 12  13 14 15 16 17
+#   18 19 20        21 22 23
 {
   qwerty = {
-    base_layout = "WERTYUIOSDFGHJKLAXCVM,.P",
+    base_layout = "WERTYUIOASDFGHJKLPCVBNM.",
     thumbs = [kc.ESC, kc.SPC, kc.N, kc.ENT],
     combos = [
-      # Left
       [kc.Q,    0,  1],
-      [kc.Z,    17, 18],
-      [kc.B,    18, 19],
-      # Right
-      [kc.QUOT, 5, 6],
-      [kc.SCLN, 6,  7],
-      [kc.MINS, 20, 21],
-      [kc.SLSH, 21, 22],
+      [kc.X,    1,  2],
+      [kc.INS,  5,  6],
+      [kc.DEL,  6,  7],
+      [kc.ESC,  9, 10],
+      [kc.TAB, 10, 11],
+      [kc.ENT, 14, 15],
+      [kc.BSPC,15, 16],
+      [kc.Z,   18, 19],
+      [kc.W & tm.ralt, 19, 20],
+      [kc.Z & tm.ralt, 21, 22],
+      [kc.L & tm.ralt, 22, 23],
     ] @ both_side_combos,
     layers = {
       NUM = shared_layers.NUM0,
