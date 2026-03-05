@@ -59,7 +59,6 @@ let both_side_combos = [
 {
   qwerty = {
     base_layout = "WERTYUIOASDFGHJKLPCVBNM.",
-    thumbs = [tap.custom.fak.CWON, kc.SPC, hold.reg.layer 1, hold.reg.layer 2],
     combos = [
       [kc.Q,    0,  1],
       [kc.X,    1,  2],

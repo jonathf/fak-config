@@ -106,13 +106,12 @@ let layer_default =
       quick_tap_interrupt_ms = 500,
       key_interrupts = std.array.replicate key_count ki.hr,
     } in
-
-    layout.thumbs
-    |> util.array.enumerate
-    |> std.array.map (fun { index, value } =>
-        value 
-        & hold.reg.layer (index + 1)
-        & hold.reg.behavior htb_thumb)
+    [
+      tap.custom.fak.CWON & hold.reg.layer 1 & hold.reg.behavior htb_thumb,
+      tap.reg.kc.SPC      & hold.reg.layer 2 & hold.reg.behavior htb_thumb,
+                            hold.reg.layer 3 & hold.reg.behavior htb_thumb,
+                            hold.reg.layer 4 & hold.reg.behavior htb_thumb
+    ]
   in
 
   base_keycodes @ thumb_keycodes @ virtual_base
