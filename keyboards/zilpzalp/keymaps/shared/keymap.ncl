@@ -44,14 +44,15 @@ let make_hrm = fun key_idx =>
   let hrm_mods =
     let md = hold.reg.mod
   in [
-    md.ralt, md.lalt, md.lctl, md.lsft, md.lgui,
-    md.lgui, md.lsft, md.lctl, md.lalt, md.ralt,
+    md.ralt, md.lgui, md.lgui, md.ralt,
+    md.lalt, md.lctl, md.lsft,
+    md.lsft, md.lctl, md.lalt
   ] in
 
   let hrm_key_indices = [
-    16, 17, 18, 19,
-    11, 12,
-    20, 21, 22, 23,
+    8, 12, 13, 17,
+    18, 19, 20,
+    21, 22, 23,
   ] in
 
   let htb_hrm_base = {
@@ -107,7 +108,7 @@ let layer_default =
       key_interrupts = std.array.replicate key_count ki.hr,
     } in
     [
-      tap.custom.fak.CWON & hold.reg.layer 1 & hold.reg.behavior htb_thumb,
+      tap.custom.fak.CWTG & hold.reg.layer 1 & hold.reg.behavior htb_thumb,
       tap.reg.kc.SPC      & hold.reg.layer 2 & hold.reg.behavior htb_thumb,
                             hold.reg.layer 3 & hold.reg.behavior htb_thumb,
                             hold.reg.layer 4 & hold.reg.behavior htb_thumb

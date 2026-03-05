@@ -11,30 +11,23 @@ let md = hold.reg.mod in
 let tm = tap.reg.mod in
 let me = tap.custom.media in
 let XXXX = tap.none & hold.none in
+let trans = tap.trans & hold.trans in
 
 let shared_layers = {
-  NUM0 = [
-            XXXX,    XXXX,    XXXX,    XXXX,        ks.PLUS, kc.N7,   kc.N8,   kc.N9,
-            md.lalt, md.lgui, md.lsft, XXXX,        kc.MINS, kc.N4,   kc.N5,   kc.N6,
-   md.lctl, XXXX,    XXXX,    XXXX,                          kc.N1,   kc.N2,   kc.N3,   kc.SLSH,
-                              XXXX,    XXXX,        kc.E,    kc.N0,
+  NUM  = [
+        kc.W, kc.E, kc.R, kc.T, kc.Y, kc.U, kc.I, kc.O,
+  kc.A, kc.S, kc.D, kc.F, kc.G, kc.H, kc.J, kc.K, kc.L, kc.P,
+        kc.C, kc.V, kc.B,             kc.N, kc.M, kc.DOT,
+              trans, trans,      trans, trans
   ],
-  NAV0 = [
+   #          XXXX,    XXXX,    XXXX,    XXXX,        ks.PLUS, kc.N7,   kc.N8,   kc.N9,
+   #          md.lalt, md.lgui, md.lsft, XXXX,        kc.MINS, kc.N4,   kc.N5,   kc.N6,
+   # md.lctl, XXXX,    XXXX,    XXXX,                          kc.N1,   kc.N2,   kc.N3,   kc.SLSH,
+   #                            XXXX,    XXXX,        kc.E,    kc.N0,
+  NAV  = [
             XXXX,    XXXX,    XXXX,    me.VOLD,     me.VOLU, kc.BSPC, kc.DEL,  kc.INS,
             md.lalt, md.lgui, md.lsft, me.MUTE,     kc.LEFT, kc.DOWN, kc.UP,   kc.RGHT,
    md.lctl, XXXX,    XXXX,    XXXX,                          kc.HOME, XXXX,    kc.END,  kc.TAB,
-                              XXXX,    XXXX,        XXXX,    XXXX,
-  ],
-  NUM1 = [
-            kc.N9,   kc.N8,   kc.N7,   ks.ASTR,     ks.PLUS, kc.N7,   kc.N8,   kc.N9,
-            kc.N6,   kc.N5,   kc.N4,   kc.SLSH,     kc.MINS, kc.N4,   kc.N5,   kc.N6,
-   kc.N0,   kc.N3,   kc.N2,   kc.N1,                         kc.N1,   kc.N2,   kc.N3,   kc.DOT,
-                              XXXX,    XXXX,        kc.E,    kc.N0,
-  ],
-  NAV1 = [
-            kc.INS,  kc.UP,   kc.BSPC, me.VOLD,     me.VOLU, kc.BSPC, kc.DEL,  kc.INS,
-            kc.LEFT, kc.DOWN, kc.RGHT, me.MUTE,     kc.LEFT, kc.DOWN, kc.UP,   kc.RGHT,
-   md.lctl, kc.HOME, kc.PGDN, kc.END,                        kc.HOME, kc.PGUP, kc.END,  kc.TAB,
                               XXXX,    XXXX,        XXXX,    XXXX,
   ],
   SYM = [
@@ -74,51 +67,10 @@ let both_side_combos = [
       [kc.L & tm.ralt, 22, 23],
     ] @ both_side_combos,
     layers = {
-      NUM = shared_layers.NUM0,
-      NAV = shared_layers.NAV0,
+      NUM = shared_layers.NUM,
+      NAV = shared_layers.NAV,
       SYM = shared_layers.SYM,
       FUN = shared_layers.FUN,
     }
-  },
-
-  colemak = {
-    base_layout = "WFPKJLUYRSTGMNEIAXCDH,.O",
-    thumbs = [kc.ESC, kc.SPC, kc.ENT, kc.BSPC],
-    combos = [
-      # Left
-      [kc.Q,    0,  1],  [kc.B,    1,  2],
-      [kc.Z,    17, 18], [kc.V,    18, 19],
-      # Right
-                                            [kc.QUOT, 5, 6],   [kc.SCLN, 6,  7],
-                                            [kc.MINS, 20, 21], [kc.SLSH, 21, 22],
-    ] @ both_side_combos,
-    layers = {
-      NUM = shared_layers.NUM0,
-      NAV = shared_layers.NAV0,
-      SYM = shared_layers.SYM,
-      FUN = shared_layers.FUN,
-    }
-  },
-
-  aptmak = {
-    base_layout = "WFPBJLUYSTHKXNAIRCGDM,.O",
-    thumbs = [kc.QUOT, kc.SPC, kc.E, kc.ENT],
-    combos = [
-      # Left
-      [kc.V,    0,  1],  [kc.Q,    1,  2],
-      [ks.LCBR, 0,  8],  [kc.LBRC, 1,  9],  [ks.LPRN, 2,  10], [ks.LABK, 3,  11],
-      [kc.Z,    17, 18], [kc.ESC,  18, 19],
-      # Right
-                                            [tm.lctl & kc.BSPC, 5, 7],
-                                            [kc.BSPC, 5, 6],   [kc.DEL,  6,  7],
-      [ks.RABK, 4,  12], [ks.RPRN, 5,  13], [kc.RBRC, 6,  14], [ks.RCBR, 7,  15],
-                                            [kc.MINS, 20, 21], [kc.SLSH, 21, 22],
-    ] @ both_side_combos,
-    layers = {
-      NUM = shared_layers.NUM1,
-      NAV = shared_layers.NAV1,
-      SYM = shared_layers.SYM,
-      FUN = shared_layers.FUN,
-    },
-  },
+  }
 }
