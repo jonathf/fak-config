@@ -99,7 +99,7 @@ let layer_default =
     |> util.array.enumerate
     |> std.array.map (fun { index, value } => tap.reg.kc."%{value}" & make_hrm index)
   in
-  
+
   let thumb_keycodes =
     let htb_thumb = {
       timeout_ms = 200,
@@ -120,8 +120,8 @@ in
 
 {
   virtual_keys = virtual_keys',
-  layers = [layer_default] @ (
-    ["NUM", "NAV", "SYM", "FUN"]
+  layers = [layer_default, layout.layers.MEH] @ (
+    ["NUM", "NAV", "SYM"]
     |> std.array.map (fun name => layout.layers."%{name}")
     |> std.array.map (fun layer => layer @ virtual_filler)
   )

@@ -14,16 +14,18 @@ let XXXX = tap.none & hold.none in
 let trans = tap.trans & hold.trans in
 
 let shared_layers = {
-  NUM  = [
-        kc.W, kc.E, kc.R, kc.T, kc.Y, kc.U, kc.I, kc.O,
+  MEH  = [
+            kc.W, kc.E, kc.R, kc.T, kc.Y, kc.U, kc.I, kc.O,
   kc.A, kc.S, kc.D, kc.F, kc.G, kc.H, kc.J, kc.K, kc.L, kc.P,
-        kc.C, kc.V, kc.B,             kc.N, kc.M, kc.DOT,
-              trans, trans,      trans, trans
+            kc.C, kc.V, kc.B,                     kc.N, kc.M, md.lsft & kc.SEMICOLON,
+                                trans,    trans,    trans,    trans
   ],
-   #          XXXX,    XXXX,    XXXX,    XXXX,        ks.PLUS, kc.N7,   kc.N8,   kc.N9,
-   #          md.lalt, md.lgui, md.lsft, XXXX,        kc.MINS, kc.N4,   kc.N5,   kc.N6,
-   # md.lctl, XXXX,    XXXX,    XXXX,                          kc.N1,   kc.N2,   kc.N3,   kc.SLSH,
-   #                            XXXX,    XXXX,        kc.E,    kc.N0,
+  NUM  = [
+            XXXX,    XXXX,    XXXX,    XXXX,        ks.PLUS, kc.N7,   kc.N8,   kc.N9,
+            md.lalt, md.lgui, md.lsft, XXXX,        kc.MINS, kc.N4,   kc.N5,   kc.N6,
+   md.lctl, XXXX,    XXXX,    XXXX,                          kc.N1,   kc.N2,   kc.N3,   kc.SLSH,
+                              XXXX,    XXXX,        kc.E,    kc.N0,
+  ],
   NAV  = [
             XXXX,    XXXX,    XXXX,    me.VOLD,     me.VOLU, kc.BSPC, kc.DEL,  kc.INS,
             md.lalt, md.lgui, md.lsft, me.MUTE,     kc.LEFT, kc.DOWN, kc.UP,   kc.RGHT,
