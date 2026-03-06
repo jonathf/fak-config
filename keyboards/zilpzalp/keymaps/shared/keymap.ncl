@@ -120,7 +120,7 @@ in
 
 {
   virtual_keys = virtual_keys',
-  layers = [layer_default, layout.layers.MEH] @ (
+  layers = [layer_default, layout.layers.MEH @ virtual_filler] @ (
     ["NUM", "NAV", "SYM"]
     |> std.array.map (fun name => layout.layers."%{name}")
     |> std.array.map (fun layer => layer @ virtual_filler)

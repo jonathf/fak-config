@@ -13,38 +13,12 @@ let me = tap.custom.media in
 let XXXX = tap.none & hold.none in
 let trans = tap.trans & hold.trans in
 
-let shared_layers = {
-  MEH  = [
-            kc.W, kc.E, kc.R, kc.T, kc.Y, kc.U, kc.I, kc.O,
-  kc.A, kc.S, kc.D, kc.F, kc.G, kc.H, kc.J, kc.K, kc.L, kc.P,
-            kc.C, kc.V, kc.B,                     kc.N, kc.M, md.lsft & kc.SEMICOLON,
-                                trans,    trans,    trans,    trans
-  ],
-  NUM  = [
-            XXXX,    XXXX,    XXXX,    XXXX,        ks.PLUS, kc.N7,   kc.N8,   kc.N9,
-            md.lalt, md.lgui, md.lsft, XXXX,        kc.MINS, kc.N4,   kc.N5,   kc.N6,
-   md.lctl, XXXX,    XXXX,    XXXX,                          kc.N1,   kc.N2,   kc.N3,   kc.SLSH,
-                              XXXX,    XXXX,        kc.E,    kc.N0,
-  ],
-  NAV  = [
-            XXXX,    XXXX,    XXXX,    me.VOLD,     me.VOLU, kc.BSPC, kc.DEL,  kc.INS,
-            md.lalt, md.lgui, md.lsft, me.MUTE,     kc.LEFT, kc.DOWN, kc.UP,   kc.RGHT,
-   md.lctl, XXXX,    XXXX,    XXXX,                          kc.HOME, XXXX,    kc.END,  kc.TAB,
-                              XXXX,    XXXX,        XXXX,    XXXX,
-  ],
-  SYM = [
-            kc.GRV,  ks.DQUO, kc.DOT,  kc.LBRC,     kc.RBRC, kc.BSLS, ks.PIPE, kc.SLSH,
-            ks.AT,   ks.HASH, ks.DLR,  ks.LPRN,     ks.RPRN, ks.AMPR, ks.ASTR, ks.PERC,
-   ks.EXLM, ks.TILD, kc.QUOT, ks.UNDS,                       kc.MINS, ks.PLUS, kc.EQL,  kc.TAB,
-                              ks.LCBR, ks.RCBR,     XXXX,    XXXX,
-  ],
-  FUN = [
-            XXXX,    XXXX,    XXXX,    XXXX,        kc.F12,  kc.F7,   kc.F8,   kc.F9,
-            XXXX,    XXXX,    XXXX,    XXXX,        kc.F11,  kc.F4,   kc.F5,   kc.F6,
-   XXXX,    XXXX,    XXXX,    XXXX,                          kc.F1,   kc.F2,   kc.F3,   kc.F10,
-                              XXXX,    XXXX,        XXXX,    XXXX,
-  ],
-} in
+  # FUN = [
+  #           XXXX,    XXXX,    XXXX,    XXXX,        kc.F12,  kc.F7,   kc.F8,   kc.F9,
+  #           XXXX,    XXXX,    XXXX,    XXXX,        kc.F11,  kc.F4,   kc.F5,   kc.F6,
+  #  XXXX,    XXXX,    XXXX,    XXXX,                          kc.F1,   kc.F2,   kc.F3,   kc.F10,
+  #                             XXXX,    XXXX,        XXXX,    XXXX,
+  # ],
 
 let both_side_combos = [
   [kc.CAPS, 0, 7],
@@ -69,10 +43,29 @@ let both_side_combos = [
       [kc.L & tm.ralt, 22, 23],
     ] @ both_side_combos,
     layers = {
-      NUM = shared_layers.NUM,
-      NAV = shared_layers.NAV,
-      SYM = shared_layers.SYM,
-      FUN = shared_layers.FUN,
+      MEH  = [
+                kc.W, kc.E, kc.R, kc.T, kc.Y, kc.U, kc.I, kc.O,
+      kc.A, kc.S, kc.D, kc.F, kc.G, kc.H, kc.J, kc.K, kc.L, kc.P,
+                kc.C, kc.V, kc.B,                     kc.N, kc.M, md.lsft & kc.SEMICOLON,
+                                    trans,    trans,    trans,    trans
+      ],
+      NUM  = [
+                XXXX,    XXXX,    XXXX,    XXXX,        ks.PLUS, kc.N7,   kc.N8,   kc.N9,
+                md.lalt, md.lgui, md.lsft, XXXX,        kc.MINS, kc.N4,   kc.N5,   kc.N6,
+      md.lctl, XXXX,    XXXX,    XXXX,                          kc.N1,   kc.N2,   kc.N3,   kc.SLSH,
+                                  XXXX,    XXXX,        kc.E,    kc.N0,
+      ],
+      NAV  = [
+                XXXX,    XXXX,    XXXX,    me.VOLD,     me.VOLU, kc.BSPC, kc.DEL,  kc.INS,
+                md.lalt, md.lgui, md.lsft, me.MUTE,     kc.LEFT, kc.DOWN, kc.UP,   kc.RGHT,
+      md.lctl, XXXX,    XXXX,    XXXX,                          kc.HOME, XXXX,    kc.END,  kc.TAB,
+                                  XXXX,    XXXX,        XXXX,    XXXX,
+      ],
+      SYM = [
+                kc.GRV,  ks.DQUO, kc.DOT,  kc.LBRC,     kc.RBRC, kc.BSLS, ks.PIPE, kc.SLSH,
+                ks.AT,   ks.HASH, ks.DLR,  ks.LPRN,     ks.RPRN, ks.AMPR, ks.ASTR, ks.PERC,
+      ks.EXLM, ks.TILD, kc.QUOT, ks.UNDS,                       kc.MINS, ks.PLUS, kc.EQL,  kc.TAB,
+                                  ks.LCBR, ks.RCBR,     XXXX,    XXXX,
+      ]
     }
-  }
 }
