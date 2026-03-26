@@ -15,10 +15,10 @@ let c = {
   A = md.ralt & kc.A & hold.reg.behavior {},
   C = md.lalt & kc.C & hold.reg.behavior {},
   V = md.lctl & kc.V & hold.reg.behavior {},
-  B = md.lsft & kc.B & hold.reg.behavior {},
+  B = hold.reg.layer 1 & kc.B & hold.reg.behavior {},
   G = md.lgui & kc.G & hold.reg.behavior {},
   H = md.lgui & kc.H & hold.reg.behavior {},
-  N = md.lsft & kc.N & hold.reg.behavior {},
+  N = hold.reg.layer 1 & kc.N & hold.reg.behavior {},
   M = md.lctl & kc.M & hold.reg.behavior {},
   DOT = md.lalt & kc.DOT & hold.reg.behavior {},
   P = md.ralt & kc.P & hold.reg.behavior {},
@@ -40,8 +40,8 @@ let combos = [
 ] in
 
 let thumbs = [
-  tap.custom.fak.CWTG,
-  kc.SPC & hold.reg.layer 0 & md.lgui & md.lctl & md.lalt & hold.reg.behavior {},
+  tap.custom.fak.CWTG & hold.reg.layer 0 & md.lgui & md.lctl & md.lalt & hold.reg.behavior {},
+  kc.SPC & hold.reg.layer 4 & hold.reg.behavior {},
   tap.sticky.layer 2 & hold.reg.layer 2 & hold.reg.behavior {},
   tap.sticky.layer 3 & hold.reg.layer 3 & hold.reg.behavior {},
 ] in
@@ -69,6 +69,11 @@ let thumbs = [
                 ks.EXLM,  tm.ralt & kc.LBRC, tm.ralt & kc.RBRC, ks.QUES, kc.HOME, kc.PGDN, kc.PGUP, kc.END,
        kc.SCLN, kc.QUOT,  ks.LABK, ks.RABK, ks.AMPR, kc.LEFT, kc.DOWN, kc.UP, kc.RIGHT, none,
                 ks.TILD,  kc.GRV, macro.make [ macro.tap (tm.ralt & kc.QUOT), macro.tap (tm.ralt & kc.QUOT) ], none, none, none,
+    ],
+    [
+                ks.HASH, tm.ralt & kc.N5, none, none, none, none, none, none,
+          none, ks.ASTR, kc.BSLS, kc.SLSH, ks.UNDS, none, none, none, none, tm.ralt & kc.QUOT,
+          ks.PERC, ks.PIPE, tm.ralt & kc.QUOT, none, none, none
     ],
   ] |> std.array.map (fun c => c @ thumbs @ (combos |> std.array.map std.array.first)),
 }
