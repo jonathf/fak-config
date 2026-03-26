@@ -36,12 +36,12 @@ let combos = [
             kc.SPC & hold.reg.layer 0 & md.lgui & md.lctl & md.lalt & hold.reg.behavior {},
             tap.sticky.layer 1 & hold.reg.layer 1 & hold.reg.behavior {},
             tap.sticky.layer 1 & hold.reg.layer 1 & hold.reg.behavior {},
-    ] @ (combos |> std.array.map std.array.first),
+    ],
     [
                       tm.lsft & kc.W, tm.lsft & kc.E, tm.lsft & kc.R, tm.lsft & kc.T, tm.lsft & kc.Y, tm.lsft & kc.U, tm.lsft & kc.I, tm.lsft & kc.O,
       tm.lsft & kc.A, tm.lsft & kc.S, tm.lsft & kc.D, tm.lsft & kc.F, tm.lsft & kc.G, tm.lsft & kc.H, tm.lsft & kc.J, tm.lsft & kc.K, tm.lsft & kc.L, tm.lsft & kc.P,
                       tm.lsft & kc.C, tm.lsft & kc.V, tm.lsft & kc.B,                                 tm.lsft & kc.N, tm.lsft & kc.M, kc.SCLN,
                 trans, trans, trans, trans,
-    ] @ (combos |> std.array.map std.array.first),
-  ]
+    ]
+  ] |> std.array.map (fun c => c @ (combos |> std.array.map std.array.first)),
 }
