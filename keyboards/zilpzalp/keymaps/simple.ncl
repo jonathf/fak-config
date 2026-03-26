@@ -3,6 +3,7 @@ let {
 } = import "fak/keycode.ncl" in
 
 let kc = tap.reg.kc in
+let ks = tap.reg.ks in
 let md = hold.reg.mod in
 let tm = tap.reg.mod in
 let trans = tap.trans & hold.trans in
@@ -34,14 +35,20 @@ let combos = [
             kc.C, kc.V, kc.B,             kc.N, kc.M, kc.DOT,
             tap.custom.fak.CWTG,
             kc.SPC & hold.reg.layer 0 & md.lgui & md.lctl & md.lalt & hold.reg.behavior {},
-            tap.sticky.layer 1 & hold.reg.layer 1 & hold.reg.behavior {},
-            tap.sticky.layer 1 & hold.reg.layer 1 & hold.reg.behavior {},
+            tap.sticky.layer 2 & hold.reg.layer 2 & hold.reg.behavior {},
+            tap.sticky.layer 2 & hold.reg.layer 2 & hold.reg.behavior {},
     ],
     [
                       tm.lsft & kc.W, tm.lsft & kc.E, tm.lsft & kc.R, tm.lsft & kc.T, tm.lsft & kc.Y, tm.lsft & kc.U, tm.lsft & kc.I, tm.lsft & kc.O,
       tm.lsft & kc.A, tm.lsft & kc.S, tm.lsft & kc.D, tm.lsft & kc.F, tm.lsft & kc.G, tm.lsft & kc.H, tm.lsft & kc.J, tm.lsft & kc.K, tm.lsft & kc.L, tm.lsft & kc.P,
                       tm.lsft & kc.C, tm.lsft & kc.V, tm.lsft & kc.B,                                 tm.lsft & kc.N, tm.lsft & kc.M, kc.SCLN,
                 trans, trans, trans, trans,
-    ]
+    ],
+    [
+          ks.AT, tm.lsft & kc.LBRC, tm.lsft & kc.RBRC, kc.EQUAL, tm.lsft & kc.EQUAL, kc.N7, kc.N8, kc.N9,
+          kc.COMMA, tm.lsft & kc.QUOTE, tm.lsft & kc.N9, tm.lsft & kc.N0, tm.lsft & kc.N4, kc.MINUS, kc.N4, kc.N5, kc.N6, kc.N0,
+          tm.lsft & kc.N6, kc.LBRC, kc.RBRC, kc.N1, kc.N2, kc.N3,
+                trans, trans, trans, trans,
+    ],
   ] |> std.array.map (fun c => c @ (combos |> std.array.map std.array.first)),
 }
