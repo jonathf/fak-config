@@ -1,5 +1,5 @@
 let {
-  tap, hold, td, combo, ..
+  tap, hold, td, combo, macro, ..
 } = import "fak/keycode.ncl" in
 
 let kc = tap.reg.kc in
@@ -7,6 +7,7 @@ let ks = tap.reg.ks in
 let md = hold.reg.mod in
 let tm = tap.reg.mod in
 let trans = tap.trans & hold.trans in
+let none = tap.none & hold.none in
 let MO = hold.reg.layer in
 let me = tap.custom.media in
 
@@ -28,7 +29,7 @@ let combos = [
 let thumbs = [
   tap.custom.fak.CWTG,
   kc.SPC & hold.reg.layer 0 & md.lgui & md.lctl & md.lalt & hold.reg.behavior {},
-  tap.sticky.layer 2 & hold.reg.layer 2 & hold.reg.behavior {},
+  tap.sticky.layer 1 & hold.reg.layer 1 & hold.reg.behavior {},
   tap.sticky.layer 2 & hold.reg.layer 2 & hold.reg.behavior {},
 ] in
 
@@ -48,8 +49,13 @@ let thumbs = [
     ],
     [
                 ks.AT,    ks.LCBR, ks.RCBR, kc.EQUAL, tm.lsft & kc.EQUAL, kc.N7, kc.N8, kc.N9,
-      kc.COMMA, ks.DQUO,  ks.LPRN, ks.RPRN, ks.DLR,   kc.MINUS, kc.N4, kc.N5, kc.N6, kc.N0,
-                ks.CIRC,  kc.LBRC, kc.RBRC,                     kc.N1, kc.N2, kc.N3,
+      kc.COMMA, ks.DQUO,  ks.LPRN, ks.RPRN, ks.DLR,   kc.MINUS,           kc.N4, kc.N5, kc.N6, kc.N0,
+                ks.CIRC,  kc.LBRC, kc.RBRC,                               kc.N1, kc.N2, kc.N3,
+    ],
+    [
+                ks.EXLM,  tm.ralt & kc.LBRC, tm.ralt & kc.RBRC, ks.QUES, kc.HOME, kc.PGDN, kc.PGUP, kc.END,
+       kc.SCLN, kc.QUOT,  ks.LABK, ks.RABK, ks.AMPR, kc.LEFT, kc.DOWN, kc.UP, kc.RIGHT, none,
+                ks.TILD,  kc.GRV, macro.make [ macro.tap (tm.ralt & kc.QUOT), macro.tap (tm.ralt & kc.QUOT) ], none, none, none,
     ],
   ] |> std.array.map (fun c => c @ thumbs @ (combos |> std.array.map std.array.first)),
 }
