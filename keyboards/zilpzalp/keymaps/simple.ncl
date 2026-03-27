@@ -16,10 +16,12 @@ let c = {
   B = hold.reg.layer 1 & kc.B & hold.reg.behavior {},
   C = md.lalt & kc.C & hold.reg.behavior {},
   DOT = md.lalt & kc.DOT & hold.reg.behavior {},
+  E = hold.reg.layer 5 & kc.E & hold.reg.behavior {},
   G = md.lgui & kc.G & hold.reg.behavior {},
   H = md.lgui & kc.H & hold.reg.behavior {},
   M = md.lctl & kc.M & hold.reg.behavior {},
   N = hold.reg.layer 1 & kc.N & hold.reg.behavior {},
+  O = hold.reg.layer 6 & kc.O & hold.reg.behavior {},
   P = md.ralt & kc.P & hold.reg.behavior {},
   V = md.lctl & kc.V & hold.reg.behavior {},
   W = hold.reg.layer 4 & kc.W & hold.reg.behavior {},
@@ -60,7 +62,7 @@ let thumbs_alt = [
     combo.make 50 (std.array.split_at 1 c).right),
   layers = [
     [
-            c.W,  kc.E, kc.R, kc.T, kc.Y, kc.U, kc.I, kc.O,
+            c.W,  c.E,  kc.R, kc.T, kc.Y, kc.U, kc.I, c.O,
        c.A, kc.S, kc.D, kc.F, c.G,  c.H,  kc.J, kc.K, kc.L, kc.P,
             c.C,  c.V,  c.B,              c.N,  c.M,  c.DOT,
     ] @ thumbs @ combos,
@@ -93,6 +95,12 @@ let thumbs_alt = [
               none, none, none, none, none, kc.F17, kc.F18, kc.F19,
         none, none, none, none, none, none, kc.F14, kc.F15, kc.F16, kc.F20,
               none, none, none,             kc.F11, kc.F12, kc.F13,
+    ] @ thumbs @ combos,
+    [
+              none, none, none, none, none, none, none, none,
+        none, kc.KB_MUTE, kc.KB_VOLUME_DOWN, kc.KB_VOLUME_UP, tm.lsft & kc.KB_VOLUME_UP,
+                      none, none, none, none, none,
+              none, none, none,             none, none, none,
     ] @ thumbs @ combos,
   ],
 }
