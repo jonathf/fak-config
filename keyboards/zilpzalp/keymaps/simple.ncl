@@ -53,8 +53,8 @@ let thumbs = [
 let thumbs_alt = [
   tap.layer.TO 0,
   tap.tlex,
-  tap.tlex,
-  tap.tlex,
+  tap.sticky.layer 7 & hold.reg.layer 7 & hold.reg.behavior {},
+  tap.sticky.layer 8 & hold.reg.layer 7 & hold.reg.behavior {},
 ] in
 
 {
@@ -102,5 +102,15 @@ let thumbs_alt = [
                       none, none, none, none, none,
               none, none, none,             none, none, none,
     ] @ thumbs @ combos,
+    [
+                tap.tlex, tap.tlex, tap.tlex, tap.tlex, tap.tlex, kc.N7, kc.N8, kc.N9,
+      tap.tlex, tap.tlex, tap.tlex, tap.tlex, tap.tlex, kc.MINUS, kc.N4, kc.N5, kc.N6, kc.N0,
+                tap.tlex, tap.tlex, tap.tlex,                     kc.N1, kc.N2, kc.N3,
+    ] @ thumbs_alt @ combos,
+    [
+                tap.tlex, tap.tlex, tap.tlex, tap.tlex, tap.tlex, tap.tlex, tap.tlex, tap.tlex,
+      tap.tlex, tap.tlex, tap.tlex, tap.tlex, ks.UNDS,  tap.tlex, tap.tlex, tap.tlex, tap.tlex, tap.tlex,
+                tap.tlex, tap.tlex, tap.tlex,                     tap.tlex, tap.tlex, tap.tlex,
+    ] @ thumbs_alt @ combos,
   ],
 }
