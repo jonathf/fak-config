@@ -8,20 +8,28 @@ let md = hold.reg.mod in
 let tm = tap.reg.mod in
 let none = tap.none & hold.none in
 
+let behavior = hold.reg.behavior {
+  timeout_ms = 200,
+  quick_tap_ms = 100,
+  #key_interrupts = [
+  #  { decision = 'hold, trigger_on = 'release },
+  #],
+} in
+
 let c = {
-  A = td.make 100 [ md.ralt & kc.A & hold.reg.behavior {}, kc.A ],
-  B = hold.reg.layer 1 & kc.B & hold.reg.behavior {},
-  C = md.lalt & kc.C & hold.reg.behavior {},
-  DOT = md.lalt & kc.DOT & hold.reg.behavior {},
-  E = hold.reg.layer 5 & kc.E & hold.reg.behavior {},
-  G = md.lgui & kc.G & hold.reg.behavior {},
-  H = md.lgui & kc.H & hold.reg.behavior {},
-  M = md.lctl & kc.M & hold.reg.behavior {},
-  N = hold.reg.layer 1 & kc.N & hold.reg.behavior {},
-  O = hold.reg.layer 6 & kc.O & hold.reg.behavior {},
-  P = md.ralt & kc.P & hold.reg.behavior {},
-  V = md.lctl & kc.V & hold.reg.behavior {},
-  W = hold.reg.layer 4 & kc.W & hold.reg.behavior {},
+  A = md.ralt & kc.A & behavior,
+  B = hold.reg.layer 1 & kc.B & behavior,
+  C = md.lalt & kc.C & behavior,
+  DOT = md.lalt & kc.DOT & behavior,
+  E = hold.reg.layer 5 & kc.E & behavior,
+  G = md.lgui & kc.G & behavior,
+  H = md.lgui & kc.H & behavior,
+  M = md.lctl & kc.M & behavior,
+  N = hold.reg.layer 1 & kc.N & behavior,
+  O = hold.reg.layer 6 & kc.O & behavior,
+  P = md.ralt & kc.P & behavior,
+  V = md.lctl & kc.V & behavior,
+  W = hold.reg.layer 4 & kc.W & behavior,
 } in
 
 let rawcombos = [
@@ -65,7 +73,7 @@ let sft_thumbs = [
             c.C,  c.V,  c.B,              c.N,  c.M,  c.DOT,
     ] @ thumbs @ combos,
     [
-                      tm.lsft & kc.W, tm.lsft & kc.E, tm.lsft & kc.R, tm.lsft & kc.T, tm.lsft & kc.Y, tm.lsft & kc.U, tm.lsft & kc.I, tm.lsft & kc.O,
+            tm.lsft & kc.W, tm.lsft & kc.E, tm.lsft & kc.R, tm.lsft & kc.T, tm.lsft & kc.Y, tm.lsft & kc.U, tm.lsft & kc.I, tm.lsft & kc.O,
       tm.lsft & kc.A, tm.lsft & kc.S, tm.lsft & kc.D, tm.lsft & kc.F, tm.lsft & kc.G, tm.lsft & kc.H, tm.lsft & kc.J, tm.lsft & kc.K, tm.lsft & kc.L, tm.lsft & kc.P,
                       tm.lsft & kc.C, tm.lsft & kc.V, tm.lsft & kc.B,                                 tm.lsft & kc.N, tm.lsft & kc.M, ks.COLN,
     ] @ sft_thumbs @ sft_combos,

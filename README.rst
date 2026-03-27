@@ -3,10 +3,10 @@ fak-config
 
 My personal FAK configuration repository.
 
-[Zilpzalp keyboard](https://github.com/kilipan/zilpzalp) |
-[Miao ch552t MCU board](https://github.com/kilipan/miao) |
-[FA Keyboard firmware](https://github.com/semickolon/fak) |
-[Nickel config language](https://nickel-lang.org)
+`Zilpzalp keyboard <https://github.com/kilipan/zilpzalp>`_ |
+`Miao ch552t MCU board <https://github.com/kilipan/miao>`_ |
+`FA Keyboard firmware <https://github.com/semickolon/fak>`_ |
+`Nickel config language <https://nickel-lang.org>`_
 
 Compiling
 ---------
