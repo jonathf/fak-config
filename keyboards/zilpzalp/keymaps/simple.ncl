@@ -9,7 +9,7 @@ let tm = tap.reg.mod in
 let none = tap.none & hold.none in
 
 let c = {
-  A = md.ralt & kc.A & hold.reg.behavior {},
+  A = td.make 100 [ md.ralt & kc.A & hold.reg.behavior {}, kc.A ],
   B = hold.reg.layer 1 & kc.B & hold.reg.behavior {},
   C = md.lalt & kc.C & hold.reg.behavior {},
   DOT = md.lalt & kc.DOT & hold.reg.behavior {},
