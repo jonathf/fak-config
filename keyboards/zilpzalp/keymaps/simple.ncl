@@ -6,10 +6,7 @@ let kc = tap.reg.kc in
 let ks = tap.reg.ks in
 let md = hold.reg.mod in
 let tm = tap.reg.mod in
-let trans = tap.trans & hold.trans in
 let none = tap.none & hold.none in
-let MO = hold.reg.layer in
-let me = tap.custom.media in
 
 let c = {
   A = md.ralt & kc.A & hold.reg.behavior {},
@@ -42,6 +39,7 @@ let rawcombos = [
   [tm.ralt & kc.L, 22, 23],
 ] in
 let combos = rawcombos |> std.array.map std.array.first in
+let sft_combos = combos |> std.array.map (fun c => (tm.lsft & c)) in
 
 let thumbs = [
   tap.layer.TG 1 & hold.reg.layer 0 & md.lgui & md.lctl & md.lalt & hold.reg.behavior {},
@@ -50,7 +48,7 @@ let thumbs = [
   tap.sticky.layer 3 & hold.reg.layer 3 & hold.reg.behavior {},
 ] in
 
-let thumbs_alt = [
+let sft_thumbs = [
   tap.layer.TO 0,
   tap.tlex,
   tap.sticky.layer 7 & hold.reg.layer 7 & hold.reg.behavior {},
@@ -59,7 +57,7 @@ let thumbs_alt = [
 
 {
   virtual_keys = rawcombos |> std.array.map (fun c =>
-    combo.make 50 (std.array.split_at 1 c).right),
+    combo.make 30 (std.array.split_at 1 c).right),
   layers = [
     [
             c.W,  c.E,  kc.R, kc.T, kc.Y, kc.U, kc.I, c.O,
@@ -70,7 +68,7 @@ let thumbs_alt = [
                       tm.lsft & kc.W, tm.lsft & kc.E, tm.lsft & kc.R, tm.lsft & kc.T, tm.lsft & kc.Y, tm.lsft & kc.U, tm.lsft & kc.I, tm.lsft & kc.O,
       tm.lsft & kc.A, tm.lsft & kc.S, tm.lsft & kc.D, tm.lsft & kc.F, tm.lsft & kc.G, tm.lsft & kc.H, tm.lsft & kc.J, tm.lsft & kc.K, tm.lsft & kc.L, tm.lsft & kc.P,
                       tm.lsft & kc.C, tm.lsft & kc.V, tm.lsft & kc.B,                                 tm.lsft & kc.N, tm.lsft & kc.M, ks.COLN,
-    ] @ thumbs_alt @ combos,
+    ] @ sft_thumbs @ sft_combos,
     [
                 ks.AT,    ks.LCBR, ks.RCBR, kc.EQUAL, tm.lsft & kc.EQUAL, kc.N7, kc.N8, kc.N9,
       kc.COMMA, ks.DQUO,  ks.LPRN, ks.RPRN, ks.DLR,   kc.MINUS,           kc.N4, kc.N5, kc.N6, kc.N0,
@@ -106,11 +104,11 @@ let thumbs_alt = [
                 tap.tlex, tap.tlex, tap.tlex, tap.tlex, tap.tlex, kc.N7, kc.N8, kc.N9,
       tap.tlex, tap.tlex, tap.tlex, tap.tlex, tap.tlex, kc.MINUS, kc.N4, kc.N5, kc.N6, kc.N0,
                 tap.tlex, tap.tlex, tap.tlex,                     kc.N1, kc.N2, kc.N3,
-    ] @ thumbs_alt @ combos,
+    ] @ sft_thumbs @ sft_combos,
     [
                 tap.tlex, tap.tlex, tap.tlex, tap.tlex, tap.tlex, tap.tlex, tap.tlex, tap.tlex,
       tap.tlex, tap.tlex, tap.tlex, tap.tlex, ks.UNDS,  tap.tlex, tap.tlex, tap.tlex, tap.tlex, tap.tlex,
                 tap.tlex, tap.tlex, tap.tlex,                     tap.tlex, tap.tlex, tap.tlex,
-    ] @ thumbs_alt @ combos,
+    ] @ sft_thumbs @ sft_combos,
   ],
 }
