@@ -89,5 +89,10 @@ let thumbs_alt = [
         none, none, none,    none, none, none, kc.F4, kc.F5, kc.F6, kc.F10,
               none, none,    none,             kc.F1, kc.F2, kc.F3,
     ] @ thumbs @ combos,
+    [
+              none, none, none, none, none, kc.F17, kc.F18, kc.F19,
+        none, none, none, none, none, none, kc.F14, kc.F15, kc.F16, kc.F20,
+              none, none, none,             kc.F11, kc.F12, kc.F13,
+    ] @ thumbs @ combos,
   ],
 }
