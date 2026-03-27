@@ -24,7 +24,7 @@ let c = {
   P = md.ralt & kc.P & hold.reg.behavior {},
 } in
 
-let combos = [
+let rawcombos = [
   [kc.Q,    0,  1],
   [kc.X,    1,  2],
   [kc.INS,  5,  6],
@@ -38,42 +38,50 @@ let combos = [
   [tm.ralt & kc.Z, 21, 22],
   [tm.ralt & kc.L, 22, 23],
 ] in
+let combos = rawcombos |> std.array.map std.array.first in
 
 let thumbs = [
-  tap.custom.fak.CWTG & hold.reg.layer 0 & md.lgui & md.lctl & md.lalt & hold.reg.behavior {},
+  tap.layer.TG 1 & hold.reg.layer 0 & md.lgui & md.lctl & md.lalt & hold.reg.behavior {},
   kc.SPC & hold.reg.layer 4 & hold.reg.behavior {},
   tap.sticky.layer 2 & hold.reg.layer 2 & hold.reg.behavior {},
   tap.sticky.layer 3 & hold.reg.layer 3 & hold.reg.behavior {},
 ] in
 
+let thumbs_alt = [
+  tap.layer.TO 0,
+  tap.tlex,
+  tap.tlex,
+  tap.tlex,
+] in
+
 {
-  virtual_keys = combos |> std.array.map (fun c =>
+  virtual_keys = rawcombos |> std.array.map (fun c =>
     combo.make 50 (std.array.split_at 1 c).right),
   layers = [
     [
             kc.W, kc.E, kc.R, kc.T, kc.Y, kc.U, kc.I, kc.O,
        c.A, kc.S, kc.D, kc.F, c.G,  c.H,  kc.J, kc.K, kc.L, kc.P,
             c.C,  c.V,  c.B,              c.N,  c.M,  c.DOT,
-    ],
+    ] @ thumbs @ combos,
     [
                       tm.lsft & kc.W, tm.lsft & kc.E, tm.lsft & kc.R, tm.lsft & kc.T, tm.lsft & kc.Y, tm.lsft & kc.U, tm.lsft & kc.I, tm.lsft & kc.O,
       tm.lsft & kc.A, tm.lsft & kc.S, tm.lsft & kc.D, tm.lsft & kc.F, tm.lsft & kc.G, tm.lsft & kc.H, tm.lsft & kc.J, tm.lsft & kc.K, tm.lsft & kc.L, tm.lsft & kc.P,
-                      tm.lsft & kc.C, tm.lsft & kc.V, tm.lsft & kc.B,                                 tm.lsft & kc.N, tm.lsft & kc.M, kc.SCLN,
-    ],
+                      tm.lsft & kc.C, tm.lsft & kc.V, tm.lsft & kc.B,                                 tm.lsft & kc.N, tm.lsft & kc.M, ks.COLN,
+    ] @ thumbs_alt @ combos,
     [
                 ks.AT,    ks.LCBR, ks.RCBR, kc.EQUAL, tm.lsft & kc.EQUAL, kc.N7, kc.N8, kc.N9,
       kc.COMMA, ks.DQUO,  ks.LPRN, ks.RPRN, ks.DLR,   kc.MINUS,           kc.N4, kc.N5, kc.N6, kc.N0,
                 ks.CIRC,  kc.LBRC, kc.RBRC,                               kc.N1, kc.N2, kc.N3,
-    ],
+    ] @ thumbs @ combos,
     [
                 ks.EXLM,  tm.ralt & kc.LBRC, tm.ralt & kc.RBRC, ks.QUES, kc.HOME, kc.PGDN, kc.PGUP, kc.END,
        kc.SCLN, kc.QUOT,  ks.LABK, ks.RABK, ks.AMPR, kc.LEFT, kc.DOWN, kc.UP, kc.RIGHT, none,
                 ks.TILD,  kc.GRV, macro.make [ macro.tap (tm.ralt & kc.QUOT), macro.tap (tm.ralt & kc.QUOT) ], none, none, none,
-    ],
+    ] @ thumbs @ combos,
     [
                 ks.HASH, tm.ralt & kc.N5, none, none, none, none, none, none,
           none, ks.ASTR, kc.BSLS, kc.SLSH, ks.UNDS, none, none, none, none, tm.ralt & kc.QUOT,
           ks.PERC, ks.PIPE, tm.ralt & kc.QUOT, none, none, none
-    ],
-  ] |> std.array.map (fun c => c @ thumbs @ (combos |> std.array.map std.array.first)),
+    ] @ thumbs @ combos,
+  ],
 }
