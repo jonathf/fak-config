@@ -8,6 +8,7 @@ let md = hold.reg.mod in
 let tm = tap.reg.mod in
 let none = tap.none & hold.none in
 
+let taps = fun c => macro.make (c |> std.array.map (fun tap => macro.tap tap)) in
 let behavior = hold.reg.behavior {
   timeout_ms = 200,
   quick_tap_ms = 100,
@@ -60,7 +61,7 @@ let sft_thumbs = [
   tap.layer.TO 0,
   tap.tlex,
   tap.sticky.layer 7 & hold.reg.layer 7 & hold.reg.behavior {},
-  tap.sticky.layer 8 & hold.reg.layer 7 & hold.reg.behavior {},
+  tap.sticky.layer 8 & hold.reg.layer 8 & hold.reg.behavior {},
 ] in
 
 {
@@ -85,11 +86,11 @@ let sft_thumbs = [
     [
                 ks.EXLM,  tm.ralt & kc.LBRC, tm.ralt & kc.RBRC, ks.QUES, kc.HOME, kc.PGDN, kc.PGUP, kc.END,
        kc.SCLN, kc.QUOT,  ks.LABK, ks.RABK, ks.AMPR, kc.LEFT, kc.DOWN, kc.UP, kc.RIGHT, none,
-                ks.TILD,  kc.GRV, macro.make [ macro.tap (tm.ralt & kc.QUOT), macro.tap (tm.ralt & kc.QUOT) ], none, none, none,
+                ks.TILD,  kc.GRV, taps [ tm.ralt & kc.QUOT, tm.ralt & kc.QUOT ], none, none, none,
     ] @ thumbs @ combos,
     [
                 ks.HASH, tm.ralt & kc.N5, none, none, none, none, none, none,
-          none, ks.ASTR, kc.BSLS, kc.SLSH, ks.UNDS, none, none, none, none, tm.ralt & kc.QUOT,
+          none, ks.ASTR, kc.BSLS, kc.SLSH, ks.UNDS, none, none, none, none, tm.ralt & kc.SCLN,
           ks.PERC, ks.PIPE, tm.ralt & kc.QUOT, none, none, none
     ] @ thumbs @ combos,
     [
@@ -109,7 +110,7 @@ let sft_thumbs = [
               none, none, none,             none, none, none,
     ] @ thumbs @ combos,
     [
-                tap.tlex, tap.tlex, tap.tlex, tap.tlex, tap.tlex, kc.N7, kc.N8, kc.N9,
+                taps [tap.layer.TO 0, ks.AT], tap.tlex, tap.tlex, tap.tlex, tap.tlex, kc.N7, kc.N8, kc.N9,
       tap.tlex, tap.tlex, tap.tlex, tap.tlex, tap.tlex, kc.MINUS, kc.N4, kc.N5, kc.N6, kc.N0,
                 tap.tlex, tap.tlex, tap.tlex,                     kc.N1, kc.N2, kc.N3,
     ] @ sft_thumbs @ sft_combos,
