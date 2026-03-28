@@ -23,16 +23,15 @@ let c = {
   B = hold.reg.layer 7 & kc.B & behavior,
   C = md.lalt & kc.C & behavior,
   DOT = md.lalt & kc.DOT & behavior,
-  E = hold.reg.layer 4 & kc.E & behavior,
+  E = hold.reg.layer 5 & kc.E & behavior,
   G = md.lgui & kc.G & behavior,
   H = md.lgui & kc.H & behavior,
   M = md.lctl & kc.M & behavior,
   N = hold.reg.layer 7 & kc.N & behavior,
   O = hold.reg.layer 6 & kc.O & behavior,
   P = md.ralt & kc.P & behavior,
-  R = hold.reg.layer 5 & kc.R & behavior,
   V = md.lctl & kc.V & behavior,
-  W = hold.reg.layer 3 & kc.W & behavior,
+  W = hold.reg.layer 4 & kc.W & behavior,
 } in
 
 let alpha_combos = [
@@ -66,7 +65,7 @@ let thumbs = [
 ] in
 
 let sft_thumbs = [
-  exit (hold.reg.layer 0 & md.lgui & md.lctl & md.lalt & hold.reg.behavior {}),
+  tap.layer.TO 0 & hold.reg.layer 0 & md.lgui & md.lctl & md.lalt & hold.reg.behavior {},
   tap.sticky.layer 8 & hold.reg.layer 8 & hold.reg.behavior {},
   tap.sticky.layer 9 & hold.reg.layer 9 & hold.reg.behavior {},
   tap.sticky.layer 10 & hold.reg.layer 10 & hold.reg.behavior {},
@@ -79,7 +78,7 @@ let sft_thumbs = [
     # layer 0
     [
             c.W,  c.E,  kc.R, kc.T, kc.Y, kc.U, kc.I, c.O,
-       c.A, kc.S, kc.D, kc.F, c.G,  c.H,  kc.J, kc.K, kc.L, kc.P,
+       c.A, kc.S, kc.D, kc.F, c.G,  c.H,  kc.J, kc.K, kc.L, c.P,
             c.C,  c.V,  c.B,              c.N,  c.M,  c.DOT,
     ] @ thumbs @ combos,
     # layer 1
@@ -102,7 +101,7 @@ let sft_thumbs = [
     ] @ thumbs @ combos,
     # layer 4
     [
-              none, none, kc.PSCR, none, none, kc.F7, kc.F8, kc.F9,
+              none, kc.PSCR, none, none, none, kc.F7, kc.F8, kc.F9,
         none, none, none,    none, none, none, kc.F4, kc.F5, kc.F6, kc.F10,
               none, none,    none,             kc.F1, kc.F2, kc.F3,
     ] @ thumbs @ combos,
