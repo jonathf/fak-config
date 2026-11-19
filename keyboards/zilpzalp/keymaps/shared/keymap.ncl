@@ -108,10 +108,10 @@ let layer_default =
       key_interrupts = std.array.replicate key_count ki.hr,
     } in
     [
-      tap.custom.fak.CWTG & hold.reg.layer 1 & hold.reg.behavior htb_thumb,
-      tap.reg.kc.SPC      & hold.reg.layer 2 & hold.reg.behavior htb_thumb,
-                            hold.reg.layer 3 & hold.reg.behavior htb_thumb,
-                            hold.reg.layer 4 & hold.reg.behavior htb_thumb
+      tap.custom.fak.CWTG & hold.reg.behavior htb_thumb,
+      tap.reg.kc.SPC      & hold.reg.layer 1 & hold.reg.behavior htb_thumb,
+                            hold.reg.layer 2 & hold.reg.behavior htb_thumb,
+                            hold.reg.layer 3 & hold.reg.behavior htb_thumb
     ]
   in
 
@@ -120,8 +120,8 @@ in
 
 {
   virtual_keys = virtual_keys',
-  layers = [layer_default, layout.layers.MEH @ virtual_filler] @ (
-    ["NUM", "NAV", "SYM"]
+  layers = [layer_default] @ (
+    ["SYM", "NUM", "NAV"]
     |> std.array.map (fun name => layout.layers."%{name}")
     |> std.array.map (fun layer => layer @ virtual_filler)
   )

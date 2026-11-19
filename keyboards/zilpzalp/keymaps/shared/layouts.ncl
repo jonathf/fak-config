@@ -21,9 +21,12 @@ let trans = tap.trans & hold.trans in
   # ],
 
 let both_side_combos = [
-  [kc.CAPS, 0, 7],
   # Caps word combo here once supported
-  # [CW, 10, 13],
+  [kc.ralt, 17, 24],
+  [kc.lalt, 18, 23],
+  [kc.lctl, 19, 22],
+  [kc.lsft, 20, 21],
+  [kc.lgui, 11, 12],
 ] in
 {
   qwerty = {
@@ -40,32 +43,32 @@ let both_side_combos = [
       [kc.Z,   18, 19],
       [kc.W & tm.ralt, 19, 20],
       [kc.Z & tm.ralt, 21, 22],
-      [kc.L & tm.ralt, 22, 23],
+      [kc.L & tm.ralt, 22, 23]
     ] @ both_side_combos,
     layers = {
-      MEH  = [
-                kc.W, kc.E, kc.R, kc.T, kc.Y, kc.U, kc.I, kc.O,
-      kc.A, kc.S, kc.D, kc.F, kc.G, kc.H, kc.J, kc.K, kc.L, kc.P,
-                kc.C, kc.V, kc.B,                     kc.N, kc.M, md.lsft & kc.SEMICOLON,
-                                    trans,    trans,    trans,    trans
+      SYM = [
+                kc.GRV,  ks.DQUO, kc.DOT,  kc.LBRC,     kc.RBRC, kc.BSLS, ks.PIPE, kc.SLSH,
+                ks.AT,   ks.HASH, ks.DLR,  ks.LPRN,     ks.RPRN, ks.AMPR, ks.ASTR, ks.PERC,
+      ks.EXLM, ks.TILD, kc.QUOT, ks.UNDS,                       kc.MINS, ks.PLUS, kc.EQL,  kc.TAB,
+                                  ks.LCBR, ks.RCBR,     XXXX,    XXXX,
       ],
       NUM  = [
-                XXXX,    XXXX,    XXXX,    XXXX,        ks.PLUS, kc.N7,   kc.N8,   kc.N9,
-                md.lalt, md.lgui, md.lsft, XXXX,        kc.MINS, kc.N4,   kc.N5,   kc.N6,
-      md.lctl, XXXX,    XXXX,    XXXX,                          kc.N1,   kc.N2,   kc.N3,   kc.SLSH,
-                                  XXXX,    XXXX,        kc.E,    kc.N0,
+               kc.AT,   kc.LCBR, kc.RCBR, kc.EQUAL,    ks.PLUS, kc.N7,   kc.N8,   kc.N9,
+               kc.DQUO, kc.LPRN, kc.RPRN, kc.DLR,      kc.MINS, kc.N4,   kc.N5,   kc.N6,
+      kc.COMM, tm.CARE, kc.LBCR, kc.RBCR,                       kc.N1,   kc.N2,   kc.N3,   kc.N0,
+                                  XXXX,    XXXX,        XXXX,    XXXX,
       ],
+      # NUM  = [
+      #          kc.HASH, tm.ralt & kc.N7, tm.ralt & kc.N0, tm.lsft & kc.N0, ks.MINS, kc.N7,   kc.N8,   kc.N9,
+      #          md.lalt, md.lgui, md.lsft, XXXX,        kc.MINS, kc.N4,   kc.N5,   kc.N6,
+      # md.lctl, XXXX,    XXXX,    XXXX,                          kc.N1,   kc.N2,   kc.N3,   kc.N0,
+      #                             XXXX,    XXXX,        XXXX,    XXXX,
+      # ],
       NAV  = [
                 XXXX,    XXXX,    XXXX,    me.VOLD,     me.VOLU, kc.BSPC, kc.DEL,  kc.INS,
                 md.lalt, md.lgui, md.lsft, me.MUTE,     kc.LEFT, kc.DOWN, kc.UP,   kc.RGHT,
       md.lctl, XXXX,    XXXX,    XXXX,                          kc.HOME, XXXX,    kc.END,  kc.TAB,
                                   XXXX,    XXXX,        XXXX,    XXXX,
       ],
-      SYM = [
-                kc.GRV,  ks.DQUO, kc.DOT,  kc.LBRC,     kc.RBRC, kc.BSLS, ks.PIPE, kc.SLSH,
-                ks.AT,   ks.HASH, ks.DLR,  ks.LPRN,     ks.RPRN, ks.AMPR, ks.ASTR, ks.PERC,
-      ks.EXLM, ks.TILD, kc.QUOT, ks.UNDS,                       kc.MINS, ks.PLUS, kc.EQL,  kc.TAB,
-                                  ks.LCBR, ks.RCBR,     XXXX,    XXXX,
-      ]
     }
 }
